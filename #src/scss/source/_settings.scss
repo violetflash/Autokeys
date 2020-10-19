@@ -30,8 +30,9 @@ ul {
   border: 2px #ff4019 solid !important; // stylelint-disable-line declaration-no-important
 }
 
-.btn-reset {
+button {
   border: none;
+  color: inherit;
   background: transparent;
   cursor: pointer;
 }
