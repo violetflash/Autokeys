@@ -1,39 +1,39 @@
-@import "source/mixins";
-@import "source/fonts";
-@import "source/vars";
-//<vendors + plugins>==================================================================================================================
-@import "vendors/vendors";
+@import "base/mixins";
+@import "base/fonts";
+@import "base/vars";
 
-//<Общие параметры>==================================================================================================
-@import "source/settings";
+// <vendors + plugins>=================================
+@import "base/vendors/vendors";
+
+// <Общие параметры>===================================
+@import "base/settings";
 
 body {
   margin: 0;
-  color: $mainColor;
-  //background-color: var(--color-white);
+  height: 100%;
   font-family: $fontFamily;
   font-size: 14px;
-  height: 100%;
+  color: var(--mainColor);
 }
 
-//Оболочка
+// Оболочка
 .site-container {
-  min-height: 100%;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  min-height: 100%;
 }
 
-//Главный контейнер
+// Главный контейнер
 .container {
-  max-width: $maxWidthContainer + px;
   margin: 0 auto;
   padding: 0 20px;
+  max-width: $maxWidthContainer + px;
 }
 
-//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>==============================================================================
-@import "source/global";
-@import "header";
-@import "footer";
+// <ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>===============================
+@import "components/global";
+//@import "components/header";
+//@import "components/footer";
 
-//===============================================================================
+// ===============================================================================
