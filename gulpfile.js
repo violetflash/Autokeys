@@ -302,12 +302,12 @@ gulp.task('otf2ttf', function () {
 })
 
 const svgSprites = () => {
-    return gulp.src([source_folder + '/images/svg/*.svg'])
+    return gulp.src([source_folder + '/images/svgSprite/*.svg'])
         .pipe(svgSprite({
             mode: {
                 stack: {
                     //куда будет выводиться готовый собранный файл
-                    sprite: "../sprite.svg", //sprite file name
+                    sprite: "../svgSprite.svg", //sprite file name
                     //создание html файла с примером иконок
                     example: true
                 }
