@@ -113,15 +113,21 @@ h4 {
     width: 9px;
     height: 18px;
     cursor: pointer;
+
+    svg path {
+      transition: all 0.1s ease 0s;
+    }
+
     @media (min-width: $md2+px) {
       &:hover {
-        stroke: red;
+        svg path {
+          stroke: var(--accent);
+        }
       }
     }
   }
 
   &__prev {
-
   }
 
   &__next {
@@ -130,5 +136,63 @@ h4 {
 
   &__count {
     margin: 0 26px;
+    color: var(--mainColor-hover);
+    font-weight: 500;
+    font-size: 16px;
+  }
+}
+
+.methods {
+  display: flex;
+
+  div {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 9px 0 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: var(--mainColor-hover);
+    cursor: pointer;
+
+    svg path {
+      transition: all 0.2s ease 0s;
+    }
+    
+    @media (min-width: $md2+px) {
+      &:hover {
+        svg path {
+          fill: #b5b5b5;
+        }
+      }
+    }    
+
+    &:last-child {
+      margin: 0;
+    }
+
+  }
+
+  &__car {
+    svg {
+      width: 22px;
+      height: 18px;
+    }
+  }
+
+  &__bus {
+    svg {
+      width: 18px;
+      height: 19px;
+    }
+  }
+
+  &__metro {
+    svg {
+      width: 19px;
+      height: 17px;
+    }
   }
 }

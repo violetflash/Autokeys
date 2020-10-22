@@ -4,7 +4,7 @@
 //итоговый каталог для заказчика
 // динамическое имя с именем общего каталога (выяснить как внести его в гит игнор)
 // let project_folder = require("path").basename(__dirname);
-let project_folder = "result";
+let project_folder = "dist";
 //каталог исходников
 let source_folder = "#src";
 
@@ -44,7 +44,7 @@ let path = {
         //слушаем всё, что является нужным файлом
         html: source_folder + "/**/*.html",
         pug: source_folder + "/**/*.pug",
-        css: source_folder + "/cscc/**/*.scss",
+        css: source_folder + "/scss/**/*.scss",
         js: source_folder + "/js/**/*.js",
         img: source_folder + "/images/**/*.{jpg,png,svg,gif,ico,webp}",
     },
@@ -86,6 +86,8 @@ let {src, dest} = require('gulp'),
     pugLinter = require('gulp-pug-linter')
     htmlValidator = require('gulp-w3c-html-validator')
     bemValidator = require('gulp-html-bem-validator')
+    notify = require('gulp-notify')
+
 
 //Функция, которая будет обновлять страницу
 function browserSync(params) {
@@ -93,12 +95,25 @@ function browserSync(params) {
     browsersync.init({
         //тут указываются настройки плагина
         server: {
-            baseDir: "./" + project_folder + "/"
+            baseDir: "./" + project_folder + "/",
+            // directory: true,
+            index: "index.html"
         },
-        port: 3000,
-        notify: false,
+        port: 5000,
+        // notify: false,
         injectChanges: false
     })
+}
+
+
+function errorHandler() {
+    var args = Array.prototype.slice.call(arguments);
+    notify.onError({
+        title: 'Compile Error',
+        message: '<%= error.message %>',
+        sound: 'Submarine'
+    }).apply(this, args);
+    this.emit('end');
 }
 
 // function pug2html() {
@@ -118,7 +133,6 @@ function html() {
     return src(path.src.html)
         //сборка файлов через fileinclude
         .pipe(fileinclude())
-        .pipe(plumber())
         .pipe(webphtml())
         .pipe(htmlValidator())
         .pipe(bemValidator())
@@ -175,6 +189,7 @@ function cssLibs() {
 function css() {
     return src(path.src.css)
         .pipe(sourcemaps.init()) //инициализируем sourcemaps, чтобы он начинал записывать, что из какого файла берётся
+        .pipe(plumber({ errorHandler: errorHandler }))
         .pipe(
             scss({
                 //формирование развернутого (не сжатого) css файла
@@ -227,6 +242,7 @@ function jsLibs() {
 
     ])
         //pipe - функция, внутри которой мы пишем команды для gulp
+        .pipe(plumber({ errorHandler: errorHandler }))
         .pipe(concat("libs.js"))
         .pipe(dest(path.build.js)) //выгрузка несжатого
         .pipe(
@@ -245,6 +261,7 @@ function js() {
     return src(path.src.js)
         //сборка файлов через fileinclude
         .pipe(fileinclude())
+        .pipe(plumber({ errorHandler: errorHandler }))
         //pipe - функция, внутри которой мы пишем команды для gulp
         .pipe(babel())
         .pipe(sourcemaps.init())
