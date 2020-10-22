@@ -27,8 +27,11 @@ let path = {
     src: {
         //исключаем файлы с _*.html из сборки
         html: [source_folder + "/*.html", "!" + source_folder + "/_*.html"],
+        //исключаем файлы с _*.pug из сборки
+        pug: [source_folder + "/pug/*.pug", "!" + source_folder + "/pug/_*.pug"],
         //конкретный файл, который будет обрабатываться галпом, а не все scss файлы в этой папке
         css: source_folder + "/scss/main.scss",
+        //Файл js, в котором будут через @@include подключаться остальные скрипты
         js: source_folder + "/js/app.js",
         // слушаем все подпапки в папке images например, content или icons
         // и выбираем только файлы с нужными расширениями
@@ -40,7 +43,8 @@ let path = {
     watch: {
         //слушаем всё, что является нужным файлом
         html: source_folder + "/**/*.html",
-        css: source_folder + "/scss/**/*.scss",
+        pug: source_folder + "/**/*.pug",
+        css: source_folder + "/cscc/**/*.scss",
         js: source_folder + "/js/**/*.js",
         img: source_folder + "/images/**/*.{jpg,png,svg,gif,ico,webp}",
     },
@@ -49,7 +53,7 @@ let path = {
     clean: "./" + project_folder + "/"
 }
 
-//переменные, которые помогу в написании сценария
+//переменные, которые помогут в написании сценария
 //переменным будет присвоен сам 'gulp'
 let {src, dest} = require('gulp'),
     //создадим отдельную переменную gulp, которой тоже присвоим 'gulp' для выполнения иных задач
@@ -77,7 +81,11 @@ let {src, dest} = require('gulp'),
     size = require("gulp-filesize"),
     babel = require("gulp-babel"), //переводит js-файлы в формат, понятный даже тупому ослику(IE). Если точнее, конвертирует javascript стандарта ES6 в ES5
     sourcemaps = require("gulp-sourcemaps"); //рисует карту слитого воедино файла, чтобы было понятно, что из какого файла бралось
-
+    plumber = require('gulp-plumber')
+    pug = require('gulp-pug')
+    pugLinter = require('gulp-pug-linter')
+    htmlValidator = require('gulp-w3c-html-validator')
+    bemValidator = require('gulp-html-bem-validator')
 
 //Функция, которая будет обновлять страницу
 function browserSync(params) {
@@ -93,15 +101,28 @@ function browserSync(params) {
     })
 }
 
-//функция для работы с html файлами
+// function pug2html() {
+//   return src(path.src.pug)
+//     .pipe(plumber())
+//     .pipe(pugLinter({ reporter: 'default' }))
+//     .pipe(pug({ pretty: false }))
+//     .pipe(webphtml())
+//     .pipe(htmlValidator())
+//     .pipe(bemValidator())
+//     .pipe(dest(path.build.html))
+//     .pipe(browsersync.stream())
+// }
+
+// функция для работы с html файлами
 function html() {
     return src(path.src.html)
         //сборка файлов через fileinclude
         .pipe(fileinclude())
+        .pipe(plumber())
         .pipe(webphtml())
-        //pipe - функция, внутри которой мы пишем команды для gulp
+        .pipe(htmlValidator())
+        .pipe(bemValidator())
         .pipe(dest(path.build.html)) //выгрузка
-        .pipe(size())
         .pipe(browsersync.stream())
 }
 
@@ -148,7 +169,6 @@ function cssLibs() {
         )
         .pipe(sourcemaps.write('.'))
         .pipe(dest(path.build.css)) //кидаем готовый файл в директорию
-        .pipe(size());
 }
 
 //Функция обработки стилей
@@ -196,7 +216,6 @@ function css() {
         )
         .pipe(sourcemaps.write('.')) //записываем карту в итоговый файл
         .pipe(dest(path.build.css))
-        .pipe(size())
         .pipe(browsersync.stream())
 }
 
@@ -219,7 +238,6 @@ function jsLibs() {
             })
         )
         .pipe(dest(path.build.js)) //выгрузка сжатого
-        .pipe(size())
         .pipe(browsersync.stream())
 }
 
@@ -241,7 +259,6 @@ function js() {
         )
         .pipe(sourcemaps.write('.'))
         .pipe(dest(path.build.js))
-        .pipe(size())
         .pipe(browsersync.stream())
 }
 
@@ -277,10 +294,7 @@ function images() {
                 }
             ),
         )
-        //сборка файлов через fileinclude
-        //pipe - функция, внутри которой мы пишем команды для gulp
         .pipe(dest(path.build.img))
-        .pipe(size())
         .pipe(browsersync.stream());
 }
 
@@ -345,6 +359,7 @@ function cb() {
 
 //Функция для отслеживания изменений на лету
 function watchFiles(params) {
+    // gulp.watch([path.watch.pug], pug2html);
     gulp.watch([path.watch.html], html);
     gulp.watch([path.watch.css], css);
     gulp.watch([path.watch.js], js);
@@ -373,6 +388,7 @@ exports.jsLibs = jsLibs;
 exports.css = css;
 exports.cssLibs = cssLibs;
 exports.html = html;
+// exports.pug2html = pug2html;
 exports.build = build;
 exports.watch = watch;
 exports.default = watch;
