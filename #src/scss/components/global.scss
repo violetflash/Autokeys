@@ -1,7 +1,21 @@
 .forms {
+  padding: 100px 0;
+  background-color: #f4f4f4;
+
   &__row {
-    margin: 0 0 30px;
+    margin: 0 0 60px;
   }
+}
+
+.card-wrapper {
+  display: flex;
+  justify-content: space-between;
+  max-width: 600px;
+}
+
+.rub::after {
+  content: "₽";
+  margin: 0 0 0 5px;
 }
 
 h1 {
@@ -32,22 +46,19 @@ h4 {
   background-color: var(--accent);
   transition: all 0.3s ease 0s;
 
-  @media (min-width: $md2 + px) {
-    &:hover {
-      background-color: var(--accent-hover);
-    }
+  &:hover {
+    background-color: var(--accent-hover);
   }
 
   &--master {
     color: var(--mainColor);
     background-color: transparent;
 
-    @media (min-width: $md2 + px) {
-      &:hover {
-        color: var(--white);
-        background-color: var(--accent);
-      }
+    &:hover {
+      color: var(--white);
+      background-color: var(--accent);
     }
+
   }
 }
 
@@ -66,10 +77,6 @@ h4 {
     transition: all 0.3s ease 0s;
     cursor: pointer;
 
-    &:last-child {
-      margin: 0;
-    }
-
     &::before {
       content: "";
       position: absolute;
@@ -81,6 +88,10 @@ h4 {
       transition: all 0.3s ease 0s;
     }
 
+    &:last-child {
+      margin: 0;
+    }
+
     &._active {
       position: relative;
       color: var(--mainColor-hover);
@@ -90,11 +101,10 @@ h4 {
       }
     }
 
-    @media (min-width: $md2+px) {
-      &:hover {
-        color: var(--mainColor-hover);
-      }
+    &:hover {
+      color: var(--mainColor-hover);
     }
+
   }
 
   &__content-box {
@@ -136,9 +146,9 @@ h4 {
 
   &__count {
     margin: 0 26px;
-    color: var(--mainColor-hover);
     font-weight: 500;
     font-size: 16px;
+    color: var(--mainColor-hover);
   }
 }
 
@@ -148,29 +158,28 @@ h4 {
   div {
     position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     margin: 0 9px 0 0;
+    border-radius: 50%;
     width: 42px;
     height: 42px;
-    border-radius: 50%;
     background-color: var(--mainColor-hover);
     cursor: pointer;
 
     svg path {
       transition: all 0.2s ease 0s;
     }
-    
-    @media (min-width: $md2+px) {
-      &:hover {
-        svg path {
-          fill: #b5b5b5;
-        }
-      }
-    }    
 
     &:last-child {
       margin: 0;
+    }
+    
+
+    &:hover {
+      svg path {
+        fill: #b5b5b5;
+      }
     }
 
   }
@@ -194,5 +203,159 @@ h4 {
       width: 19px;
       height: 17px;
     }
+  }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 22px 18px 30px;
+  min-height: 100%;
+  width: 100%;
+  max-width: 265px;
+  box-shadow: 0 12px 45px rgba(0, 0, 0, 0.03);
+  text-align: center;
+  background: #fff;
+
+  &:hover {
+    .card__header {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__header {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease 0s;
+  }
+
+  &__preview {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 19px;
+    background-image: url("../images/icons/eye.svg");
+    background-position: center left;
+    background-size: 23px 13px;
+    background-repeat: no-repeat;
+
+    &:hover {
+      .card__tooltip {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  &__preview-icon {
+    margin: 0 0 3px;
+    width: 23px;
+    height: 13px;
+  }
+
+  &__tooltip {
+    position: absolute;
+    left: 41px;
+    top: -9px;
+    display: block;
+    border-radius: 2px;
+    padding: 6px 10px;
+    width: 120px;
+    box-shadow: 0 6px 43px rgba(0, 0, 0, 0.16);
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 1.3;
+    text-align: left;
+    background: #fefefe;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease 0s;
+    
+    &::before {
+      content: "";
+      position: absolute;
+      left: -9px;
+      top: 50%;
+      border-top: 7px solid transparent;
+      border-right: 10px solid #fefefe;
+      border-bottom: 7px solid transparent;
+      width: 0;
+      height: 0;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__add-to-favorites {
+    width: 19px;
+    height: 17px;
+
+    &.added {
+      svg {
+        fill: var(--accent);
+      }
+      
+      svg path {
+        stroke: var(--accent);
+      }
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    margin: 0 0 20px;
+  }
+
+  &__image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    min-height: 122px;
+    max-width: 122px;
+  }
+
+  &__title {
+    margin: 0 0 10px;
+    min-height: 32px;
+    font-size: 14px;
+    color: var(--black);
+  }
+
+  &__desc {
+    flex: 1 1 auto;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  &__footer {
+    flex: 0 0 auto;
+  }
+
+  &__price {
+    margin: 0 0 10px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 145%;
+    color: var(--black);
+  }
+
+  &__details {
+    padding: 13px 30px 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    font-size: 14px;
+    color: var(--mainColor-hover);
   }
 }
