@@ -145,6 +145,7 @@ function cssLibs() {
     //библиотека из css-стилей плагинов
     return src([
         "node_modules/swiper/swiper-bundle.css",
+        "node_modules/magnific-popup/dist/magnific-popup.css",
         // "node_modules/normalize.css/normalize.css",
         // "node_modules/select2/dist/css/select2.css",
         // "node_modules/nouislider/distribute/nouislider.css"
@@ -241,6 +242,7 @@ function jsLibs() {
         "node_modules/swiper/swiper-bundle.js",
         "node_modules/nouislider/distribute/nouislider.js",
         "node_modules/jquery/dist/jquery.min.js",
+        "node_modules/magnific-popup/dist/jquery.magnific-popup.min.js",
     ])
         //pipe - функция, внутри которой мы пишем команды для gulp
         .pipe(plumber({ errorHandler: errorHandler }))

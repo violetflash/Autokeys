@@ -6,6 +6,7 @@
   outline: transparent;
   vertical-align: middle;
   margin: 0 0 10px;
+
 }
 .select2-container .select2-selection--single {
   box-sizing: border-box;
@@ -54,7 +55,6 @@
 .select2-dropdown {
   background-color: white;
   border: 1px solid #aaa;
-  border-radius: 4px;
   box-sizing: border-box;
   display: block;
   position: absolute;
@@ -304,7 +304,7 @@
   color: #999; }
 
 .select2-container--default .select2-results__option[aria-selected=true] {
-  background-color: #f6f6f6;
+
   position: relative;
 
   &::after {
@@ -344,7 +344,6 @@
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
   background-color: #f6f6f6;
-  //color: white;
 }
 
 .select2-container--default .select2-results__group {

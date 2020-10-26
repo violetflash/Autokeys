@@ -16,7 +16,13 @@
           <option>Москва</option>
           <option>Санкт-Петербург</option>
         </select>
-        <a class="top-header__login" href="">Вход | Регистрация</a>
+        <a class="top-header__login" href="#login-register-modal">
+          <svg class="top-header__login-icon" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12.3 5C12.3 7.44602 10.5311 9.3 8.5 9.3C6.46887 9.3 4.7 7.44602 4.7 5C4.7 2.55398 6.46887 0.7 8.5 0.7C10.5311 0.7 12.3 2.55398 12.3 5Z" stroke="#7B7B7B" stroke-width="1.4"/>
+            <path d="M7 9.7H10C13.4794 9.7 16.3 12.5206 16.3 16V17.3H0.7V16C0.7 12.5206 3.52061 9.7 7 9.7Z" stroke="#7B7B7B" stroke-width="1.4"/>
+          </svg>
+          Вход | Регистрация
+        </a>
       </div>
       <div class="top-header__contacts">
         <div class="top-header__phone">
@@ -25,6 +31,30 @@
         </div>
         <a class="top-header__btn btn btn--clear" href="">Консультация мастера</a>
       </div>
+      <form id="login-register-modal" class="mfp-hide logon">
+        <h1>Form</h1>
+        <fieldset style="border: 0;">
+          <p>Lightbox has an option to automatically focus on the first input. It's strongly recommended to use <code>inline</code> popup type for lightboxes with form instead of <code>ajax</code> (to keep entered data if the user accidentally refreshed the page).</p>
+          <ol>
+            <li>
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Name" required="">
+            </li>
+            <li>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="example@domain.com" required="">
+            </li>
+            <li>
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" placeholder="Eg. +447500000000" required="">
+            </li>
+            <li>
+              <label for="textarea">Textarea</label><br>
+              <textarea id="textarea">Try to resize me to see how popup CSS-based resizing works.</textarea>
+            </li>
+          </ol>
+        </fieldset>
+      </form>
     </div>
   </div>
 </header>
