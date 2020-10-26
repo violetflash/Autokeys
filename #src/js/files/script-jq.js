@@ -22,4 +22,6 @@ $(function() {
             horizrailenabled: false,
         });
     });
+
+    @@include('../../components/header/header.js', {})
 });

@@ -44,8 +44,8 @@ let path = {
         //слушаем всё, что является нужным файлом
         html: source_folder + "/**/*.html",
         pug: source_folder + "/**/*.pug",
-        css: source_folder + "/scss/**/*.scss",
-        js: source_folder + "/js/**/*.js",
+        css: source_folder + "/**/*.scss",
+        js: source_folder + "/**/*.js",
         img: source_folder + "/images/**/*.{jpg,png,svg,gif,ico,webp}",
     },
     //объект CLEAN содержит путь к каталгу проекта и отвечает за удаление этого каталога
