@@ -24,4 +24,5 @@ $(function() {
     });
 
     @@include('../../components/header/header.js', {})
+    @@include('../../components/popup/popup.js', {})
 });
