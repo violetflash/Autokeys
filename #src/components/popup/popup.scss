@@ -1,0 +1,26 @@
+.mfp-close {
+  transition: all 0.3s ease 0s;
+}
+
+.mfp-close:hover,
+.mfp-close:focus {
+  opacity: 1;
+  color: var(--accent);
+}
+
+.logon {
+  &__tab-box {
+    display: flex;
+    width: 100%;
+  }
+
+  &__tab {
+    flex: 1 0 50%;
+    text-align: center;
+    padding: 0 0 10px;
+  }
+  
+  &__item {
+    margin: 0 0 15px;
+  }
+}
