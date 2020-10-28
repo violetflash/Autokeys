@@ -1,4 +1,27 @@
-$('.logon__switcher').click(function(){
+///MODAL LOGIN-REGISTER
+
+$('.top-header__login').magnificPopup({
+    type: 'inline',
+    preloader: false,
+    focus: '.logon__login',
+    closeOnBgClick: false,
+
+    // When elemened is focused, some mobile browsers in some cases zoom in
+    // It looks not nice, so we disable it:
+    callbacks: {
+        beforeOpen: function() {
+            if($(window).width() < 700) {
+                this.st.focus = false;
+            } else {
+                this.st.focus = '#name';
+            }
+        }
+    }
+});
+
+
+// Switching Login to Register
+$('.logon__switcher').click(function () {
     // Switches the Icon
     $(this).children('.logon__tooltip').toggleClass('register');
     // Switches the forms
@@ -9,3 +32,24 @@ $('.logon__switcher').click(function(){
         opacity: "toggle"
     }, "slow");
 })
+
+
+// password show
+let passEyes = document.querySelectorAll('.logon__show');
+let passwords = document.querySelectorAll('.logon__password');
+
+for (let i = 0; i < passEyes.length; i++) {
+    const passEye = passEyes[i];
+
+    passEye.addEventListener('click', function () {
+
+        passEye.classList.toggle('_active');
+
+        let password = passwords[i];
+        (password.type == 'password') ? password.type = 'text' : password.type = 'password';
+    });
+}
+
+
+
+

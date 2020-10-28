@@ -6,8 +6,16 @@
     <h1 class="logon__title">вход</h1>
     <form class="logon__form" action="#">
       <input class="logon__input" type="text" placeholder="логин" required>
-      <input class="logon__input" type="password" placeholder="пароль" required>
+      <label class="logon__label">
+        <input class="logon__input logon__password" type="password" placeholder="пароль" required>
+        <button class="logon__show" type="button"></button>
+      </label>
+      <label class="logon__checkbox">
+        <input class="logon__checkbox-input" type="checkbox">
+        <span class="logon__checkbox-text">Запомнить</span>
+      </label>
       <button class="logon__btn btn btn--clear" type="submit">войти</button>
+
     </form>
   </div>
 
@@ -15,10 +23,20 @@
     <h1 class="logon__title">регистрация</h1>
     <form class="logon__form" action="#">
       <input class="logon__input" type="text" placeholder="логин" required>
-      <input class="logon__input" type="password" placeholder="пароль" required>
-      <input class="logon__input" type="password" placeholder="введите пароль еще раз" required>
+      <label class="logon__label">
+        <input class="logon__input logon__password" type="password" placeholder="пароль" required>
+        <button class="logon__show" type="button"></button>
+      </label>
+      <label class="logon__label">
+        <input class="logon__input logon__password" type="password" placeholder="введите пароль еще раз" required>
+        <button class="logon__show" type="button"></button>
+      </label>
       <input class="logon__input" type="email" placeholder="эл. почта" required>
       <input class="logon__input" type="tel" placeholder="телефон" required>
+      <label class="logon__checkbox">
+        <input class="logon__checkbox-input" type="checkbox" required>
+        <span class="logon__checkbox-text">Согласен с <a class="logon__link" href="">условиями</a></span>
+      </label>
       <button class="logon__btn btn btn--clear" type="submit">Зарегистрироваться</button>
     </form>
     <a class="logon__cta" href="#"><span>Забыли пароль?</span></a>
