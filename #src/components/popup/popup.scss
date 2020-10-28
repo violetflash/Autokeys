@@ -38,10 +38,14 @@ button.mfp-close {
   background-color: #fff;
   max-width: $logonWidth;
   width: 100%;
-  box-shadow: 0 0 3px rgba(var(--black), 0.1);
+  box-shadow: 0 0 3px rgba(var(--black), 0.6);
 
-
+  
   &__switcher {
+
+  }
+  
+  &__switcher-title {
     position: absolute;
     left: 0;
     top: -5px;
@@ -65,10 +69,8 @@ button.mfp-close {
     font-size: 14px;
     color: var(--mainColor);
     text-transform: none;
+    cursor: pointer;
 
-    span {
-      border-bottom: 1px dashed;
-    }
 
     &::before {
       content: "";
@@ -91,6 +93,10 @@ button.mfp-close {
       border-left: 15px solid #fff;
       border-bottom: 8px solid transparent;
     }
+  }
+
+  &__tooltip-text {
+    border-bottom: 1px dashed;
   }
 
   &__module {
@@ -165,11 +171,17 @@ button.mfp-close {
     top: -3px;
     left: 5px;
     border-radius: 0;
+    //border-width: 2px;
     border-color: var(--accent);
     border-top-color: transparent;
     border-left-color: transparent;
     -webkit-transform: rotate(45deg);
     transform: rotate(40deg);
+    z-index: 5;
+  }
+
+  &__checkbox-input:checked + .logon__checkbox-text::after {
+    opacity: 1;
   }
 
   &__checkbox-text {
@@ -188,12 +200,27 @@ button.mfp-close {
       height: 15px;
       border: 1px solid #e0e0e0;
       transition: all 0.3s ease 0s;
-
     }
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      opacity: 0;
+      left: 0;
+      top: 0;
+      width: 15px;
+      height: 15px;
+      border: 1px solid #e0e0e0;
+      transition: all 0.3s ease 0s;
+    }
+
+
   }
 
-  &__link {
+  &__terms {
     border-bottom: 1px solid #e0e0e0;
+    color: var(--mainColor-hover);
     text-transform: capitalize;
   }
 

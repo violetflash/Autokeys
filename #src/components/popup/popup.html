@@ -1,7 +1,7 @@
 <div class="mfp-hide logon" id="logon-modal">
   <div class="logon__switcher">
     <h2 class="logon__switcher-title">регистрация</h2>
-    <span class="logon__tooltip"><span>нет аккаунта?</span></span>
+    <div class="logon__tooltip"><span class="logon__tooltip-text">нет аккаунта?</span></div>
   </div>
   <div class="logon__module">
     <h1 class="logon__title">вход</h1>
@@ -16,7 +16,7 @@
         <span class="logon__checkbox-text">Запомнить</span>
       </label>
       <button class="logon__btn btn btn--clear" type="submit">войти</button>
-
+      <a class="logon__cta" href="#"><span>Забыли пароль?</span></a>
     </form>
   </div>
 
@@ -36,10 +36,9 @@
       <input class="logon__input" type="tel" placeholder="телефон" required>
       <label class="logon__checkbox">
         <input class="logon__checkbox-input" type="checkbox" required>
-        <span class="logon__checkbox-text">Согласен с <a class="logon__link" href="">условиями</a></span>
+        <span class="logon__checkbox-text">cогласен с <a class="logon__terms" href="">условиями...</a></span>
       </label>
       <button class="logon__btn btn btn--clear" type="submit">Зарегистрироваться</button>
     </form>
-    <a class="logon__cta" href="#"><span>Забыли пароль?</span></a>
   </div>
 </div>

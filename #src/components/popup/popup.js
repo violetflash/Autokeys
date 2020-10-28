@@ -27,11 +27,12 @@ $('.logon__switcher').click(function () {
 
     if ($(this).hasClass('_register')) {
         // $(this).text('Вход')
-        $('.logon__tooltip').text('уже есть аккаунт?')
+        $('.logon__tooltip-text').text('уже есть аккаунт?')
+        $('.logon__switcher-title').text('Вход')
     } else {
         // $(this).text('Регистрация')
-        $('.logon__tooltip').text('нет аккаунта?')
-
+        $('.logon__tooltip-text').text('нет аккаунта?')
+        $('.logon__switcher-title').text('Регистрация   ')
     }
     // Switches the forms
     $('.logon__module').animate({
