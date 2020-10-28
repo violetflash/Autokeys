@@ -23,7 +23,16 @@ $('.top-header__login').magnificPopup({
 // Switching Login to Register
 $('.logon__switcher').click(function () {
     // Switches the Icon
-    $(this).children('.logon__tooltip').toggleClass('register');
+    $(this).toggleClass('_register');
+
+    if ($(this).hasClass('_register')) {
+        // $(this).text('Вход')
+        $('.logon__tooltip').text('уже есть аккаунт?')
+    } else {
+        // $(this).text('Регистрация')
+        $('.logon__tooltip').text('нет аккаунта?')
+
+    }
     // Switches the forms
     $('.logon__module').animate({
         height: "toggle",

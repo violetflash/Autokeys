@@ -40,11 +40,12 @@ button.mfp-close {
   width: 100%;
   box-shadow: 0 0 3px rgba(var(--black), 0.1);
 
+
   &__switcher {
     position: absolute;
     left: 0;
     top: -5px;
-    padding: 10px;
+    padding: 10px 20px;
     border-radius: 10px 0 10px 0;
     background-color: var(--accent);
     font-size: 16px;
