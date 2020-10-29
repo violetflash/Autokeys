@@ -19,8 +19,11 @@
         </select>
         <a class="top-header__login" href="#logon-modal">
           <svg class="top-header__login-icon" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12.3 5C12.3 7.44602 10.5311 9.3 8.5 9.3C6.46887 9.3 4.7 7.44602 4.7 5C4.7 2.55398 6.46887 0.7 8.5 0.7C10.5311 0.7 12.3 2.55398 12.3 5Z" stroke="#7B7B7B" stroke-width="1.4"/>
-            <path d="M7 9.7H10C13.4794 9.7 16.3 12.5206 16.3 16V17.3H0.7V16C0.7 12.5206 3.52061 9.7 7 9.7Z" stroke="#7B7B7B" stroke-width="1.4"/>
+            <path
+                d="M12.3 5C12.3 7.44602 10.5311 9.3 8.5 9.3C6.46887 9.3 4.7 7.44602 4.7 5C4.7 2.55398 6.46887 0.7 8.5 0.7C10.5311 0.7 12.3 2.55398 12.3 5Z"
+                stroke="#7B7B7B" stroke-width="1.4"/>
+            <path d="M7 9.7H10C13.4794 9.7 16.3 12.5206 16.3 16V17.3H0.7V16C0.7 12.5206 3.52061 9.7 7 9.7Z" stroke="#7B7B7B"
+                  stroke-width="1.4"/>
           </svg>
           Вход | Регистрация
         </a>
@@ -39,25 +42,39 @@
       <div class="bottom-header">
         <nav class="bottom-header__menu">
           <ul class="bottom-header__list">
-            <li class="bottom-header__item"><a class="bottom-header__link" href="#">Каталог ключей</a></li>
+            <li class="bottom-header__item"><a class="bottom-header__link bottom-header__link--menu  _active" href="#">Каталог ключей</a>
+            </li>
             <li class="bottom-header__item"><a class="bottom-header__link" href="#">О нас</a></li>
             <li class="bottom-header__item"><a class="bottom-header__link" href="#">Оплата и доставка</a></li>
             <li class="bottom-header__item"><a class="bottom-header__link" href="#">Цены</a></li>
             <li class="bottom-header__item"><a class="bottom-header__link" href="#"> Блог</a></li>
             <li class="bottom-header__item"><a class="bottom-header__link" href="#">Контакты</a></li>
           </ul>
-          <div class="bottom-header__cart cart">
-            <a class="cart__btn" href="#">
-              <svg viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 1L5.87911 1.69702C6.72834 1.81833 7.40562 2.46772 7.56253 3.3111L7.96977 5.5M7.96977 5.5L9.54574 15.511C9.69884 16.4835 10.5369 17.2 11.5214 17.2H23.7384C24.6562 17.2 25.4561 16.5754 25.6787 15.6851L28 6.4L7.96977 5.5Z" stroke="#2C2C2C" stroke-width="2"/>
-                <circle cx="12.7" cy="22.6004" r="1.7" stroke="#2C2C2C" stroke-width="2"/>
-                <circle cx="22.6" cy="22.6004" r="1.7" stroke="#2C2C2C" stroke-width="2"/>
-                <path d="M1 1L5.87911 1.69702C6.72834 1.81833 7.40562 2.46772 7.56253 3.3111L7.96977 5.5M7.96977 5.5L9.54574 15.511C9.69884 16.4835 10.5369 17.2 11.5214 17.2H23.7384C24.6562 17.2 25.4561 16.5754 25.6787 15.6851L28 6.4L7.96977 5.5Z" stroke="#2C2C2C" stroke-width="2"/>
-              </svg>
-            </a>
-            <a class="cart__total" href="#"></a>
-          </div>
         </nav>
+        <nav class="bottom-header__dropdown">
+          Еще
+          <ul class="bottom-header__dropdown-list">
+            <li class="bottom-header__item"><a class="bottom-header__link" href="#">Контакты</a></li>
+            <li class="bottom-header__item"><a class="bottom-header__link" href="#"> Блог</a></li>
+
+          </ul>
+        </nav>
+        <div class="bottom-header__cart cart">
+          <a class="cart__btn" href="#">
+            <svg class="cart__icon" viewBox="0 0 30 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                  d="M1 1L5.87911 1.69702C6.72834 1.81833 7.40562 2.46772 7.56253 3.3111L7.96977 5.5M7.96977 5.5L9.54574 15.511C9.69884 16.4835 10.5369 17.2 11.5214 17.2H23.7384C24.6562 17.2 25.4561 16.5754 25.6787 15.6851L28 6.4L7.96977 5.5Z"
+                  stroke="#2C2C2C" stroke-width="2"/>
+              <circle cx="12.7" cy="22.6004" r="1.7" stroke="#2C2C2C" stroke-width="2"/>
+              <circle cx="22.6" cy="22.6004" r="1.7" stroke="#2C2C2C" stroke-width="2"/>
+              <path
+                  d="M1 1L5.87911 1.69702C6.72834 1.81833 7.40562 2.46772 7.56253 3.3111L7.96977 5.5M7.96977 5.5L9.54574 15.511C9.69884 16.4835 10.5369 17.2 11.5214 17.2H23.7384C24.6562 17.2 25.4561 16.5754 25.6787 15.6851L28 6.4L7.96977 5.5Z"
+                  stroke="#2C2C2C" stroke-width="2"/>
+            </svg>
+            <span class="cart__counter">3</span>
+          </a>
+          <a class="cart__total rub" href="#">234</a>
+        </div>
       </div>
     </div>
   </div>

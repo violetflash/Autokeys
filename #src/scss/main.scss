@@ -29,7 +29,8 @@ body {
 .container {
   margin: 0 auto;
   padding: 0 20px;
-  width: $maxWidthContainer + px;
+  max-width: $maxWidthContainer + px;
+  width: 100%;
 }
 
 // <ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>===============================
