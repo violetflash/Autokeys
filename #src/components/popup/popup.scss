@@ -71,6 +71,10 @@ button.mfp-close {
     text-transform: none;
     cursor: pointer;
 
+    @media (max-width: 650px) {
+      display: none;
+    }
+
 
     &::before {
       content: "";
