@@ -1,19 +1,17 @@
 <!doctype html>
 <html lang="ru">
-  @@include('components/head.html', { "title": "Главная" })
+@@include('components/head.html', { "title": "Главная" })
 
-  <body>
-    <div class="site-container">
-      @@include('components/header/header.html', {})
-      <main class="main">
-        <section class="hero">
-
-        </section>
-      </main>
-    </div>
-    @@include('components/footer/footer.html', {})
-    @@include('components/popup/popup.html', {})
-    <script src="js/libs.min.js"></script>
-    <script src="js/app.min.js"></script>
-  </body>
+<body>
+  <div class="site-container">
+    @@include('components/header/header.html', {})
+    <main class="main">
+      @@include('components/hero/hero.html', {})
+    </main>
+  </div>
+  @@include('components/footer/footer.html', {})
+  @@include('components/popup/popup.html', {})
+  <script src="js/libs.min.js"></script>
+  <script src="js/app.min.js"></script>
+</body>
 </html>

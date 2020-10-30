@@ -22,6 +22,7 @@ let path = {
         js: project_folder + "/js/",
         img: project_folder + "/images/",
         fonts: project_folder + "/fonts/",
+        video: project_folder + "/video/",
     },
     //для каталога с исходниками
     src: {
@@ -37,6 +38,7 @@ let path = {
         // и выбираем только файлы с нужными расширениями
         img: source_folder + "/images/**/*.{jpg,png,svg,gif,ico,webp}",
         fonts: source_folder + "/fonts/*.ttf",
+        video: source_folder + "/video/**/*.*",
     },
     //объект watch, который содержит пути к файлам, которые мы будем слушать постоянно, т.е.
     //отлавливать их изменения и выполнять
@@ -47,6 +49,7 @@ let path = {
         css: source_folder + "/**/*.scss",
         js: source_folder + "/**/*.js",
         img: source_folder + "/images/**/*.{jpg,png,svg,gif,ico,webp}",
+        video: source_folder + "/video/**/*.*",
     },
     //объект CLEAN содержит путь к каталгу проекта и отвечает за удаление этого каталога
     //каждый раз, когда мы будем запускать gulp
@@ -70,6 +73,7 @@ let {src, dest} = require('gulp'),
     uglify = require("gulp-uglify-es").default,
     concat = require("gulp-concat"),
     imagemin = require("gulp-imagemin"),
+    imageminGifsicle = require('imagemin-gifsicle'),
     recompress = require("imagemin-jpeg-recompress"), //тоже пережимает, но лучше. Плагин для плагина
     pngquant = require("imagemin-pngquant"),
     webp = require("gulp-webp"),
@@ -105,7 +109,7 @@ function browserSync(params) {
     })
 }
 
-
+// Обработчик ошибок
 function errorHandler() {
     var args = Array.prototype.slice.call(arguments);
     notify.onError({
@@ -116,17 +120,18 @@ function errorHandler() {
     this.emit('end');
 }
 
-// function pug2html() {
-//   return src(path.src.pug)
-//     .pipe(plumber())
-//     .pipe(pugLinter({ reporter: 'default' }))
-//     .pipe(pug({ pretty: false }))
-//     .pipe(webphtml())
-//     .pipe(htmlValidator())
-//     .pipe(bemValidator())
-//     .pipe(dest(path.build.html))
-//     .pipe(browsersync.stream())
-// }
+// Работа с pug
+function pug2html() {
+  return src(path.src.pug)
+    .pipe(plumber())
+    .pipe(pugLinter({ reporter: 'default' }))
+    .pipe(pug({ pretty: false }))
+    .pipe(webphtml())
+    .pipe(htmlValidator())
+    .pipe(bemValidator())
+    .pipe(dest(path.build.html))
+    .pipe(browsersync.stream())
+}
 
 // функция для работы с html файлами
 function html() {
@@ -302,11 +307,20 @@ function images() {
                         min: 80, //минимальное качество в процентах
                         max: 100, //максимальное качество в процентах
                         quality: "high", //тут всё говорит само за себя, если хоть капельку понимаешь английский
-                        use: [pngquant()],
+                        use: [pngquant({strip: true})],
                     }),
-                    imagemin.gifsicle(), //тут и ниже всякие плагины для обработки разных типов изображений
-                    imagemin.optipng(),
-                    imagemin.svgo(),
+                    imagemin.gifsicle({interlaced: true}), //тут и ниже всякие плагины для обработки разных типов изображений
+                    imagemin.mozjpeg({
+                        quality: 75,
+                        progressive: true
+                    }),
+                    imagemin.optipng({ optimizationLevel: 5 }),
+                    imagemin.svgo({
+                        plugins: [
+                            { removeViewBox: true },
+                            { cleanupIDs: false }
+                        ]
+                    }),
                 ],
                 {
                     progressive: true,
@@ -320,6 +334,18 @@ function images() {
         .pipe(browsersync.stream());
 }
 
+// auto copy converted fonts to dist
+const copyFonts = () =>
+    src(source_folder + '/*.{woff,woff2,svg}')
+        .pipe(dest(path.build.fonts));
+
+// auto copy videos
+const copyVideo = () =>
+    src(path.src.video)
+        .pipe(dest(path.build.video));
+
+//auto convert. .ttf-to-.woff + copy to dist - bad (too much time on every run)
+//to turn it on: add "fonts" to gulp.parallel series
 function fonts(params) {
     src(path.src.fonts)
         .pipe(ttf2woff())
@@ -329,6 +355,17 @@ function fonts(params) {
         .pipe(dest(path.build.fonts));
 }
 
+// manual convert. .ttf-to-.woff + copy to dist
+// command: "gulp ttf2woff"
+gulp.task('ttf2woff', function () {
+    src(path.src.fonts)
+        .pipe(ttf2woff())
+        .pipe(dest(source_folder + '/fonts/'));
+    return src(path.src.fonts)
+        .pipe(ttf2woff2())
+        .pipe(dest(source_folder + '/fonts/'));
+})
+
 gulp.task('otf2ttf', function () {
     return src([source_folder + '/fonts/*.otf'])
         .pipe(fonter({
@@ -336,6 +373,7 @@ gulp.task('otf2ttf', function () {
         }))
         .pipe(dest(source_folder + '/fonts/'));
 })
+
 
 const svgSprites = () => {
     return gulp.src([source_folder + '/images/svgSprite/*.svg'])
@@ -386,6 +424,7 @@ function watchFiles(params) {
     gulp.watch([path.watch.css], css);
     gulp.watch([path.watch.js], js);
     gulp.watch([path.watch.img], images);
+    gulp.watch([path.watch.video], copyVideo);
 }
 
 //Функция, кот. будет чистить(удалять) папку result
@@ -393,7 +432,7 @@ function clean(params) {
     return del(path.clean);
 }
 
-let build = gulp.series(clean, gulp.parallel(jsLibs, js, cssLibs, css, html, images, svgSprites, fonts), fontsStyle);
+let build = gulp.series(clean, gulp.parallel(jsLibs, js, cssLibs, css, html, images, svgSprites, copyFonts, copyVideo), fontsStyle);
 //сценарий выполнения watch
 let watch = gulp.parallel(build, watchFiles, browserSync);
 
@@ -403,7 +442,9 @@ let watch = gulp.parallel(build, watchFiles, browserSync);
 
 exports.fontsStyle = fontsStyle;
 exports.svgSprites = svgSprites;
-exports.fonts = fonts;
+// exports.fonts = fonts;
+exports.copyVideo = copyVideo;
+exports.copyFonts = copyFonts;
 exports.images = images;
 exports.js = js;
 exports.jsLibs = jsLibs;

@@ -381,7 +381,7 @@ h4 {
     width: 100%;
     height: 50px;
     background-color: rgba(#979797, 0.5);
-    box-shadow: inset 1px 0px 25px -17px rgba(0, 0, 0, 0.75);
+    box-shadow: inset 1px 0 25px -17px rgba(0, 0, 0, 0.75);
 
     &::before {
       content: "";
@@ -427,13 +427,13 @@ h4 {
     }
   }
 
-  &__tab-content {
-    display: none;
-
-    &._active {
-      display: block;
-    }
-  }
+  //&__tab-content {
+  //  display: none;
+  //
+  //  &._active {
+  //    display: block;
+  //  }
+  //}
 
   &__auto-icon {
     margin: 0 12px 0 0;
