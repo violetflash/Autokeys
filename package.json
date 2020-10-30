@@ -37,6 +37,7 @@
     "gulp-w3c-html-validator": "^2.0.1",
     "gulp-webp": "^4.0.1",
     "gulp-webp-html": "^1.0.2",
+    "imagemin-gifsicle": "^7.0.0",
     "imagemin-jpeg-recompress": "^7.0.0",
     "imagemin-pngquant": "^9.0.1",
     "jquery": "^3.5.1",

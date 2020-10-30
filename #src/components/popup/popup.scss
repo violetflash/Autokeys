@@ -185,7 +185,7 @@ button.mfp-close {
   }
 
   &__checkbox-input:checked + .logon__checkbox-text::after {
-    opacity: 1;
+    //opacity: 1;
   }
 
   &__checkbox-text {
@@ -218,8 +218,6 @@ button.mfp-close {
       border: 1px solid #e0e0e0;
       transition: all 0.3s ease 0s;
     }
-
-
   }
 
   &__terms {

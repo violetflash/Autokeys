@@ -370,6 +370,10 @@
       top: 39px;
     }
 
+    @media (max-width: 400px) {
+      width: 290px;
+    }
+
     .bottom-header__item {
       display: block;
       margin: 0;
