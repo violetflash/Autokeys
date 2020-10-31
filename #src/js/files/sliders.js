@@ -28,3 +28,43 @@ if (sliders) {
 }
 
 function sliders_bild_callback(params) { }
+
+if (document.querySelector('.duplicate__slider')) {
+  var duplicate_slider = new Swiper('.duplicate__slider-body', {
+    // effect: 'fade',
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+    observer: true,
+    observeParents: true,
+    slidesPerView: 1,
+    // spaceBetween: 0,
+    // autoHeight: true,
+    speed: 800,
+    loop: true,
+
+    /*
+    touchRatio: 0,
+    simulateTouch: false,
+    preLoadImages: false,
+    lazy: true,
+    //Dots
+    */
+    // pagination: {
+    //   el: '.slider__dots',
+    //   clickable: true,
+    // },
+    // Arrows
+
+    // navigation: {
+    //   nextEl: '.about__more .about__more--next',
+    //   prevEl: '.about__more .about__more--prev',
+    // },
+    // on: {
+    //   lazyImageReady: function () {
+    //     ibg();
+    //   },
+    // }
+  })
+}

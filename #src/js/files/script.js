@@ -11,3 +11,6 @@ for (let i = 0; i < favorites.length; i++) {
     });
 }
 
+@@include('../../components/duplicate/duplicate.js', {})
+
+

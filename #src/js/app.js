@@ -1,4 +1,4 @@
-// @@include('files/sliders.js', {})
+@@include('files/sliders.js', {})
 @@include('files/vendors.js', {})
 // @@include('files/functions.js', {})
 @@include('files/forms.js', {})
