@@ -378,7 +378,7 @@ h4 {
     //border: 1px solid rgba(#ff8200, .5);
     border-radius: 32px;
     padding: 0 36px 0 30px;
-    width: 100%;
+    width: 275px;
     height: 50px;
     background-color: rgba(#979797, 0.5);
     box-shadow: inset 1px 0 25px -17px rgba(0, 0, 0, 0.75);
@@ -400,10 +400,6 @@ h4 {
       &::before {
         transform: translateX(128px);
       }
-    }
-
-    &:active:after {
-      width: 160px;
     }
   }
 
@@ -427,13 +423,13 @@ h4 {
     }
   }
 
-  //&__tab-content {
-  //  display: none;
-  //
-  //  &._active {
-  //    display: block;
-  //  }
-  //}
+  &__tab-content {
+    display: none;
+
+    &._active {
+      display: block;
+    }
+  }
 
   &__auto-icon {
     margin: 0 12px 0 0;
