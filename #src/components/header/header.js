@@ -3,8 +3,7 @@ $('.top-header__select').select2({
     width: "150px",
     minimumResultsForSearch: Infinity,
     dropdownCssClass: "city-dropdown",
-});
-
+})
 
 
 //Header NAV menu switch active

@@ -30,7 +30,7 @@ if (sliders) {
 function sliders_bild_callback(params) { }
 
 if (document.querySelector('.duplicate__slider')) {
-  var duplicate_slider = new Swiper('.slider__body', {
+  var duplicate_slider = new Swiper('.duplicate__slider-body', {
     // effect: 'fade',
     // autoplay: {
     //   delay: 3000,
