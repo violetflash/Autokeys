@@ -22,20 +22,9 @@
     overflow: hidden;
 
     @media (max-width: 500px) {
-      height: 385px;
+      height: calc(100% - 431px);
     }
 
-    @media (max-width: 365px) {
-      height: 415px;
-    }
-
-    @media (max-width: 331px) {
-      height: 430px;
-    }
-
-    @media (max-width: 320px) {
-      height: 460px;
-    }
   }
 
   &__tabs {
