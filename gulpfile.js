@@ -248,7 +248,9 @@ function jsLibs() {
         // "node_modules/nouislider/distribute/nouislider.js",
         "node_modules/jquery/dist/jquery.min.js",
         "node_modules/select2/dist/js/select2.full.js",
-        "node_modules/magnific-popup/dist/jquery.magnific-popup.min.js"
+        "node_modules/magnific-popup/dist/jquery.magnific-popup.min.js",
+        "node_modules/inputmask/dist/inputmask.js",
+        "node_modules/just-validate/dist/js/just-validate.js",
 
     ])
         //pipe - функция, внутри которой мы пишем команды для gulp

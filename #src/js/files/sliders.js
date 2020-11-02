@@ -64,10 +64,10 @@ if (document.querySelector('.duplicate__slider')) {
 if (document.querySelector('.brands__slider')) {
   var brands_slider = new Swiper('.brands__slider', {
 
-    // autoplay: {
-    //   delay: 3000,
-    //   disableOnInteraction: false,
-    // },
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: true,
+    },
     slidesPerView: 7,
     centeredSlides: true,
     observer: true,
@@ -75,12 +75,6 @@ if (document.querySelector('.brands__slider')) {
     spaceBetween: 15,
     speed: 800,
     loop: true,
-    //Dots
-    // pagination: {
-    //   el: '.brands__count',
-    //   // clickable: true,
-    //   type: 'fraction',
-    // },
     // Arrows
     navigation: {
       nextEl: '.brands__arrow-next',

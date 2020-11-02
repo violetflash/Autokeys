@@ -264,11 +264,13 @@ button.mfp-close {
 .call {
   width: $callWidth;
   background-color: #fff;
+  margin: 0 auto;
 
   &__top {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
+    //display: flex;
+    //align-items: center;
+    //justify-content: center;
     padding: 26px 15px;
   }
 
@@ -280,6 +282,8 @@ button.mfp-close {
   }
   
   &__text {
+    display: block;
+    width: 100%;
     color: var(--mainColor);
     font-size: 12px;
   }
@@ -292,13 +296,20 @@ button.mfp-close {
   &__btn {
     flex: 0 1 50%;
     display: block;
+    text-align: center;
     padding: 15px;
     border-right: 1px solid #e0e0e0;
     font-weight: 600;
     color: var(--mainColor-hover);
+    transition: all 0.3s ease 0s;
     
     &::first-letter {
       text-transform: capitalize;
+    }
+    
+    &:hover {
+      background-color: var(--accent);
+      color: var(--white);
     }
     
     &:last-child {
@@ -306,10 +317,92 @@ button.mfp-close {
     }
 
     &.active {
-      background-color: var(--accent);
-      color: var(--white);
+      @media (max-width: 992px) {
+        background-color: var(--accent);
+        color: var(--white);
+      }
     }
   }
 
 
+}
+
+.call-request {
+  position: relative;
+  margin: 0 auto;
+  padding: 40px 15px 30px;
+  width: $callRequest;
+  background-color: var(--white);
+  text-align: center;
+
+
+  &__title {
+    margin: 0 0 20px;
+    padding: -15px;
+    font-weight: 700;
+    color: var(--mainColor-hover);
+
+    &::first-letter {
+      text-transform: capitalize;
+    }
+  }
+
+  &__subtitle {
+    margin: 0 0 35px;
+  }
+
+  &__input {
+    margin: 0 0 10px;
+    color: var(--mainColor-hover);
+    font-weight: 700;
+    transition: all 0.3s ease 0s;
+
+    &--tel {
+      font-weight: 500;
+    }
+    
+    &:last-child {
+      margin: 0;
+    }
+    
+    &::placeholder {
+      color: var(--mainColor);
+      font-weight: 500;
+    }
+    
+
+
+    &:focus {
+      border-bottom: 1px solid var(--accent);
+    }
+  }
+
+  &__btn {
+    margin: 130px 0 25px;
+    width: 100%;
+    
+    &::first-letter {
+      text-transform: capitalize;
+    }
+  }
+
+  &__text {
+    margin: 0 0 10px;
+    font-size: 12px;
+  }
+
+  &__phone {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .mfp-close {
+    top: 20px;
+    right: 21px;
+    opacity: 0.2;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }

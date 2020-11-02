@@ -11,6 +11,7 @@
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "browser-sync": "^2.26.12",
+    "choices.js": "^9.0.1",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
@@ -40,7 +41,9 @@
     "imagemin-gifsicle": "^7.0.0",
     "imagemin-jpeg-recompress": "^7.0.0",
     "imagemin-pngquant": "^9.0.1",
+    "inputmask": "^5.0.5",
     "jquery": "^3.5.1",
+    "just-validate": "^1.5.0",
     "magnific-popup": "^1.1.0",
     "normalize.css": "^8.0.1",
     "nouislider": "^14.6.2",

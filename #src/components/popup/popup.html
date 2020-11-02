@@ -32,7 +32,7 @@
         <button class="logon__show" type="button"></button>
       </label>
       <input class="logon__input" type="email" placeholder="эл. почта" required>
-      <input class="logon__input" type="tel" placeholder="телефон" required>
+      <input class="logon__input phone" type="tel" placeholder="телефон" required>
       <label class="logon__checkbox">
         <input class="logon__checkbox-input" type="checkbox" required>
         <span class="logon__checkbox-text">cогласен с <a class="logon__terms" href="">условиями...</a></span>
@@ -52,3 +52,13 @@
     <a class="call__btn" href="#call-request">заказать звонок</a>
   </div>
 </div>
+
+<form class="mfp-hide call-request" id="call-request">
+  <h2 class="call-request__title">заказать звонок</h2>
+  <p class="call-request__subtitle">Нету времени или возможности позвонить? Мы свяжемся с Вами в ближайшие 2 минуты!</p>
+  <input class="call-request__input" type="text" placeholder="Ваше имя" required>
+  <input class="call-request__input call-request__input--tel" type="tel" placeholder="Ваш телефон" required>
+  <button class="call-request__btn btn" type="submit">заказать звонок</button>
+  <p class="call-request__text">или свяжитесь с нами по номеру</p>
+  <a class="call-request__phone" href="tel:+74951351511">+7 (495) 135-15-11</a>
+</form>

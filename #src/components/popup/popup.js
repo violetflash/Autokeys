@@ -59,10 +59,18 @@ for (let i = 0; i < passEyes.length; i++) {
 }
 
 // Call modal
-$('.call').magnificPopup({
+$('.hero__btn').magnificPopup({
     type: 'inline',
     preloader: false,
 });
+
+// Call-request modal
+$('.call__btn').magnificPopup({
+    type: 'inline',
+    preloader: false,
+});
+
+
 
 
 
