@@ -260,3 +260,49 @@ button.mfp-close {
     }
   }
 }
+
+.call {
+  width: 300px;
+  background-color: #fff;
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 26px 15px;
+  }
+
+  &__phone {
+    margin: 0 0 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--mainColor-hover);
+  }
+  
+  &__text {
+    color: var(--mainColor);
+    font-size: 12px;
+  }
+  
+  &__buttons {
+    display: flex;
+    border: 1px solid #e0e0e0;
+  }
+  
+  &__btn {
+    flex: 0 1 50%;
+    display: block;
+    border-right: 1px solid #e0e0e0;
+    font-weight: 600;
+    color: var(--white);
+    
+    &::first-letter {
+      text-transform: capitalize;
+    }
+    
+    &:last-child {
+      border: none;
+    }
+  }
+
+}
