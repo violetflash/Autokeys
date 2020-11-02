@@ -61,6 +61,24 @@ h4 {
   }
 }
 
+.ibg {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+
+  img {
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+
 ._tabs-content {
   display: none;
 
@@ -127,16 +145,13 @@ h4 {
     cursor: pointer;
     outline: transparent;
 
-
-    svg path {
+    path {
       transition: all 0.1s ease 0s;
     }
 
-    @media (min-width: $md2+px) {
-      &:hover {
-        svg path {
-          stroke: var(--accent);
-        }
+    &:hover {
+      path {
+        stroke: var(--accent);
       }
     }
   }

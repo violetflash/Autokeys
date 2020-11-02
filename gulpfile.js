@@ -336,7 +336,7 @@ function images() {
 
 // auto copy converted fonts to dist
 const copyFonts = () =>
-    src(source_folder + '/*.{woff,woff2,svg}')
+    src(source_folder + '/fonts/*.{woff,woff2,svg}')
         .pipe(dest(path.build.fonts));
 
 // auto copy videos

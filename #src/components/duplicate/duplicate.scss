@@ -116,16 +116,19 @@
       object-position: center;
     }
   }
-}
 
-.swiper-pagination-fraction {
-  width: auto;
-}
+  .slider-control {
+    margin: 40px 0 0;
 
-.slider-control {
-  margin: 40px 0 0;
+    @media (max-width: 550px) {
+      justify-content: center;
+    }
+  }
 
-  @media (max-width: 550px) {
-    justify-content: center;
+  .swiper-pagination-fraction {
+    width: auto;
   }
 }
+
+
+
