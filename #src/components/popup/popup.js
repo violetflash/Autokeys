@@ -19,7 +19,6 @@ $('.top-header__login').magnificPopup({
     }
 });
 
-
 // Switching Login to Register
 $('.logon__switcher').click(function () {
     // Switches the Icon
@@ -43,7 +42,6 @@ $('.logon__switcher').click(function () {
     }, "slow");
 })
 
-
 // password show
 let passEyes = document.querySelectorAll('.logon__show');
 let passwords = document.querySelectorAll('.logon__password');
@@ -59,6 +57,12 @@ for (let i = 0; i < passEyes.length; i++) {
         (password.type == 'password') ? password.type = 'text' : password.type = 'password';
     });
 }
+
+// Call modal
+$('.call').magnificPopup({
+    type: 'inline',
+    preloader: false,
+});
 
 
 

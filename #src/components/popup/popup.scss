@@ -262,7 +262,7 @@ button.mfp-close {
 }
 
 .call {
-  width: 300px;
+  width: $callWidth;
   background-color: #fff;
 
   &__top {
@@ -292,9 +292,10 @@ button.mfp-close {
   &__btn {
     flex: 0 1 50%;
     display: block;
+    padding: 15px;
     border-right: 1px solid #e0e0e0;
     font-weight: 600;
-    color: var(--white);
+    color: var(--mainColor-hover);
     
     &::first-letter {
       text-transform: capitalize;
@@ -303,6 +304,12 @@ button.mfp-close {
     &:last-child {
       border: none;
     }
+
+    &.active {
+      background-color: var(--accent);
+      color: var(--white);
+    }
   }
+
 
 }
