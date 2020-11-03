@@ -38,4 +38,4 @@ validateForms('.call-request', {
     }
 })
 
-
+@@include('../../components/hero/hero.js', {})

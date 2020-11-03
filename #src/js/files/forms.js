@@ -21,7 +21,7 @@ for (let i = 0; i < tabs.length; i++) {
 
 //FILTER-TABS
 let tabsFilter = document.querySelectorAll('.filter');
-for (let i = 0; i < tabs.length; i++) {
+for (let i = 0; i < tabsFilter.length; i++) {
     let tabFilter = tabsFilter[i];
     let tabs_items = tabFilter.querySelectorAll('.filter__tab');
     let tabs_content = tabFilter.querySelectorAll('.filter__tab-content');

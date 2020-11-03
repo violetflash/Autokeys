@@ -1,6 +1,5 @@
 .hero {
   position: relative;
-  padding: 20px 0 0;
   max-width: 1920px;
   width: 100%;
   min-height: 616px;
@@ -22,67 +21,63 @@
     }
   }
 
-  &__tabs {
-    .tabs__tab-box-wrapper {
-      display: flex;
+  &__menu-wrapper {
+    display: flex;
+    margin: 0 0 65px;
+  }
+
+  &__menu {
+    position: relative;
+    width: 100%;
+    color: var(--white);
+    overflow-x: auto;
+  }
+
+  &__menu-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    border-bottom: 1px solid rgba($white, 0.1);
+    white-space: nowrap;
+  }
+
+  &__menu-item {
+    margin: 0 27px 0 0;
+
+    &:last-child {
+      margin: 0;
     }
+  }
 
-    .tabs__tab-box {
-      margin: 0 0 62px;
-      width: 100%;
-      justify-content: space-between;
-      color: var(--white);
-      border-bottom: 1px solid rgba($white, 0.1);
+  &__menu-link {
+    display: inline-block;
+    padding: 20px 0;
 
-      @media (max-width: 1200px) {
-        overflow-x: scroll;
-        white-space: nowrap;
-      }
-      
-      @media (max-width: $md3 + px) {
-        margin: 0 0 48px;
-      }
-      
-      @media (max-width: 500px) {
-        margin: 0 0 24px;
-      }
-    }
+  }
 
-    .tabs__angle-right {
-      display: none;
-      width: 20px;
-      padding: 0 0 18px;
-      height: 100%;
-      background-image: url('../images/icons/tabs-angle-right.svg');
-      background-position: right;
-      background-size: 7px 14px;
-      background-repeat: no-repeat;
+  &__menu-line {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--accent);
+    transition: all 0.75s;
+  }
 
-      @media (max-width: 1200px) {
-        display: block;
-      }
-    }
+  &__angle-right {
+    display: none;
+    width: 20px;
+    padding-top: 57px;
+    height: 100%;
+    background-image: url('../images/icons/tabs-angle-right.svg');
+    background-position: right;
+    background-size: 7px 14px;
+    background-repeat: no-repeat;
 
-    .tabs__tab {
-      font-weight: 500;
-      padding: 0 0 18px;
-      margin: 0 27px 0 0;
-
-      &:last-child {
-        margin: 0;
-      }
-
-      &::before {
-        bottom: -1px;
-      }
-
-      &:hover {
-        color: var(--white);
-      }
-
-      &._active {
-        color: var(--white);
-      }
+    @media (max-width: 1200px) {
+      display: block;
     }
   }
 
@@ -100,13 +95,14 @@
     
     @media (max-width: $md3+px) {
       order: 1;
-      margin: 0 auto;
+      margin: 0 auto 40px;
     }
 
     @media (max-width: 500px) {
       max-width: 100%;
       width: 100%;
       padding: 34px 0;
+      margin: 0;
     }
   }
 
