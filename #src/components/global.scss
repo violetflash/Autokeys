@@ -34,12 +34,14 @@ h4 {
   font-size: 16px;
 }
 
-input {
+input,
+textarea {
   width: 100%;
   outline: transparent;
   padding: 14px 16px;
   border: 1px solid #E0E0E0;
   color: var(--mainColor-hover);
+  resize: none;
 }
 
 .btn {
@@ -52,10 +54,15 @@ input {
   line-height: 1.2;
   color: var(--white);
   background-color: var(--accent);
+  text-align: center;
   transition: all 0.3s ease 0s;
 
   &:hover {
     background-color: var(--accent-hover);
+  }
+
+  &::first-letter {
+    text-transform: capitalize;
   }
 
   &--clear {

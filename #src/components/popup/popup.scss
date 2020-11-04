@@ -29,22 +29,26 @@ button.mfp-close {
   background: url('../images/icons/filter-clear.svg') center no-repeat;
 }
 
-.logon {
+.modal {
   position: relative;
   margin: 0 auto;
-  border-top: 5px solid var(--accent);
-  padding: 20px;
-  border-radius: 10px 0 10px 0;
   background-color: #fff;
-  max-width: $logonWidth;
-  width: 100%;
-  box-shadow: 0 0 3px rgba(var(--black), 0.6);
+  //width: 100%;
 
-  
-  &__switcher {
+  &--logon {
+    border-top: 5px solid var(--accent);
+    padding: 20px;
+    border-radius: 10px 0 10px 0;
+    box-shadow: 0 0 3px rgba(var(--black), 0.6);
+    max-width: $logonWidth;
 
+    .modal__btn {
+      margin: 30px 0 0;
+      padding: 14px 20px;
+      font-weight: 600;
+    }
   }
-  
+
   &__switcher-title {
     position: absolute;
     left: 0;
@@ -74,7 +78,6 @@ button.mfp-close {
     @media (max-width: 650px) {
       display: none;
     }
-
 
     &::before {
       content: "";
@@ -112,32 +115,46 @@ button.mfp-close {
   }
   
   &__title {
-    font-size: 24px;
     margin: 0 0 20px;
+    //padding: 15px;
+    font-weight: 700;
     text-align: center;
-    text-transform: capitalize;
+    color: var(--mainColor-hover);
+
+    &::first-letter {
+      text-transform: capitalize;
+    }
+  }
+
+  &__subtitle {
+    margin: 0 0 35px;
+    line-height: 1.55;
   }
 
   &__input {
-    outline: transparent;
-    width: 100%;
-    border: 1px solid #e0e0e0;
-    margin: 0 0 20px;
-    padding: 10px 15px;
+    margin: 0 0 10px;
+    font-weight: 600;
     transition: all 0.3s ease 0s;
-    
-    &::placeholder {
-      &:first-letter {
-        text-transform: capitalize;
-      }
+
+    &--tel {
+      font-weight: 500;
+    }
+
+    &--textarea {
+      min-height: 90px;
     }
 
     &:last-child {
       margin: 0;
     }
 
+    &::placeholder {
+      color: var(--mainColor);
+      font-weight: 500;
+    }
+
     &:focus {
-      border: 1px solid #b5b1b1;
+      border-bottom: 1px solid var(--accent);
     }
   }
 
@@ -170,7 +187,7 @@ button.mfp-close {
     visibility: hidden;
   }
 
-  &__checkbox-input:checked + .logon__checkbox-text::before {
+  &__checkbox-input:checked + .modal__checkbox-text::before {
     width: 10px;
     top: -3px;
     left: 5px;
@@ -184,35 +201,21 @@ button.mfp-close {
     z-index: 5;
   }
 
-  &__checkbox-input:checked + .logon__checkbox-text::after {
-    //opacity: 1;
-  }
-
   &__checkbox-text {
     position: relative;
     display: block;
     padding-left: 25px;
+    font-size: 12px;
+    line-height: 1.6;
     cursor: pointer;
+    text-align: left;
 
     &::before {
       content: "";
       position: absolute;
       display: block;
       left: 0;
-      top: 0;
-      width: 15px;
-      height: 15px;
-      border: 1px solid #e0e0e0;
-      transition: all 0.3s ease 0s;
-    }
-
-    &::after {
-      content: "";
-      position: absolute;
-      display: block;
-      opacity: 0;
-      left: 0;
-      top: 0;
+      top: 3px;
       width: 15px;
       height: 15px;
       border: 1px solid #e0e0e0;
@@ -226,12 +229,39 @@ button.mfp-close {
     text-transform: capitalize;
   }
 
+  &__call-btn {
+    flex: 0 1 50%;
+    display: block;
+    text-align: center;
+    padding: 15px;
+    border-right: 1px solid #e0e0e0;
+    font-weight: 600;
+    color: var(--mainColor-hover);
+
+    &::first-letter {
+      text-transform: capitalize;
+    }
+
+    &:hover {
+      background-color: var(--accent);
+      color: var(--white);
+    }
+
+    &:last-child {
+      border: none;
+    }
+
+    &.active {
+      @media (max-width: 992px) {
+        background-color: var(--accent);
+        color: var(--white);
+      }
+    }
+  }
+
   &__btn {
-    margin: 30px 0 0;
+    margin: 30px 0;
     width: 100%;
-    padding: 10px 15px;
-    font-size: 14px;
-    text-transform: uppercase;
   }
 
   &__cta {
@@ -259,67 +289,66 @@ button.mfp-close {
       }
     }
   }
-}
 
-.call {
-  width: $callWidth;
-  background-color: #fff;
-  margin: 0 auto;
+  // modal call
+  &--call {
+    width: $callWidth;
+
+    .modal__phone {
+      color: var(--mainColor-hover);
+      margin: 0 0 10px;
+    }
+
+    .mfp-close {
+      top: 10px;
+      right: 10px;
+      opacity: 0.2;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
 
   &__top {
     text-align: center;
-    //display: flex;
-    //align-items: center;
-    //justify-content: center;
     padding: 26px 15px;
   }
 
   &__phone {
-    margin: 0 0 10px;
     font-weight: 600;
     font-size: 20px;
-    color: var(--mainColor-hover);
   }
-  
+
   &__text {
     display: block;
     width: 100%;
     color: var(--mainColor);
     font-size: 12px;
   }
-  
+
   &__buttons {
     display: flex;
     border: 1px solid #e0e0e0;
   }
-  
-  &__btn {
-    flex: 0 1 50%;
-    display: block;
+
+  // modal call-request
+  &--request {
+    padding: 40px 15px 30px;
+    width: $callRequest;
     text-align: center;
-    padding: 15px;
-    border-right: 1px solid #e0e0e0;
-    font-weight: 600;
-    color: var(--mainColor-hover);
-    transition: all 0.3s ease 0s;
-    
-    &::first-letter {
-      text-transform: capitalize;
-    }
-    
-    &:hover {
-      background-color: var(--accent);
-      color: var(--white);
-    }
-    
-    &:last-child {
-      border: none;
+
+    .modal__text {
+      margin: 0 0 10px;
     }
 
-    &.active {
-      @media (max-width: 992px) {
-        background-color: var(--accent);
-        color: var(--white);
+    .mfp-close {
+      top: 20px;
+      right: 21px;
+      opacity: 0.2;
+
+      &:hover {
+        opacity: 1;
       }
     }
   }
@@ -327,82 +356,3 @@ button.mfp-close {
 
 }
 
-.call-request {
-  position: relative;
-  margin: 0 auto;
-  padding: 40px 15px 30px;
-  width: $callRequest;
-  background-color: var(--white);
-  text-align: center;
-
-
-  &__title {
-    margin: 0 0 20px;
-    padding: -15px;
-    font-weight: 700;
-    color: var(--mainColor-hover);
-
-    &::first-letter {
-      text-transform: capitalize;
-    }
-  }
-
-  &__subtitle {
-    margin: 0 0 35px;
-  }
-
-  &__input {
-    margin: 0 0 10px;
-    color: var(--mainColor-hover);
-    font-weight: 700;
-    transition: all 0.3s ease 0s;
-
-    &--tel {
-      font-weight: 500;
-    }
-    
-    &:last-child {
-      margin: 0;
-    }
-    
-    &::placeholder {
-      color: var(--mainColor);
-      font-weight: 500;
-    }
-    
-
-
-    &:focus {
-      border-bottom: 1px solid var(--accent);
-    }
-  }
-
-  &__btn {
-    margin: 130px 0 25px;
-    width: 100%;
-    
-    &::first-letter {
-      text-transform: capitalize;
-    }
-  }
-
-  &__text {
-    margin: 0 0 10px;
-    font-size: 12px;
-  }
-
-  &__phone {
-    font-size: 20px;
-    font-weight: 600;
-  }
-
-  .mfp-close {
-    top: 20px;
-    right: 21px;
-    opacity: 0.2;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-}

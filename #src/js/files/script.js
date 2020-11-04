@@ -32,10 +32,10 @@ let validateForms = function (selector, rules) {
     })
 }
 
-validateForms('.call-request', {
-    tel: {
-        required: true,
-    }
-})
+// validateForms('.call-request', {
+//     tel: {
+//         required: true,
+//     }
+// })
 
 @@include('../../components/hero/hero.js', {})
