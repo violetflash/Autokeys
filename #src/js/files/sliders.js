@@ -114,3 +114,56 @@ if (document.querySelector('.brands__slider')) {
     }
   })
 }
+
+if(document.querySelector('.info__slider')) {
+  var info_slider = new Swiper('.info__slider', {
+    // autoplay: {
+    //   delay: 3000,
+    //   disableOnInteraction: true,
+    // },
+    slidesPerView: 4,
+    // centeredSlides: true,
+    observer: true,
+    observeParents: true,
+    spaceBetween: 35,
+    speed: 800,
+    loop: true,
+
+    pagination: {
+      // el: '.info--blog .slider-control__count',
+      // clickable: true,
+      type: 'fraction',
+    },
+    // Arrows
+    navigation: {
+      nextEl: '.info--blog .slider-control__next',
+      prevEl: '.info--blog .slider-control__prev',
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 35,
+        // centeredSlides: true,
+      },
+      // when window width is >= 480px
+      600: {
+        slidesPerView: 2,
+        spaceBetween: 35,
+        // centeredSlides: true,
+      },
+      // when window width is >= 768px
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 35
+      },
+      992: {
+        slidesPerView: 3,
+        spaceBetween: 35
+      },
+      1205: {
+        slidesPerView: 4,
+        spaceBetween: 35
+      }
+    }
+  })
+}

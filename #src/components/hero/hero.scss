@@ -36,14 +36,14 @@
   &__menu-list {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    //justify-content: space-between;
     margin: 0;
-    border-bottom: 1px solid rgba($white, 0.1);
+    border-bottom: 2px solid rgba($white, 0.1);
     white-space: nowrap;
   }
 
   &__menu-item {
-    margin: 0 27px 0 0;
+    //margin: 0 27px 0 0;
 
     &:last-child {
       margin: 0;
@@ -52,7 +52,11 @@
 
   &__menu-link {
     display: inline-block;
-    padding: 20px 0;
+    padding: 20px 35px;
+
+    @media (max-width: 992px) {
+      padding: 20px 13px;
+    }
 
   }
 
@@ -60,8 +64,8 @@
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 100%;
-    height: 1px;
+    //width: 100%;
+    height: 2px;
     background-color: var(--accent);
     transition: all 0.75s;
   }
@@ -76,7 +80,7 @@
     background-size: 7px 14px;
     background-repeat: no-repeat;
 
-    @media (max-width: 1200px) {
+    @media (max-width: 1150px) {
       display: block;
     }
   }

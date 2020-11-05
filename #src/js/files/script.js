@@ -40,4 +40,4 @@ let validateForms = function (selector, rules) {
 
 @@include('../../components/hero/hero.js', {})
 @@include('../../components/about/about.js', {})
-@@include('../../components/articles/articles.js', {})
+@@include('../../components/info-blog/info-blog.js', {})

@@ -1,6 +1,6 @@
-let itemsArticles = document.querySelectorAll('.articles__item');
+let itemsArticles = document.querySelectorAll('.poster');
 number = 1;
-let countersArticles = document.querySelectorAll('.articles__counter');
+let countersArticles = document.querySelectorAll('.poster__counter');
 
 for (let i = 0; i < itemsArticles.length; i++) {
     let counter = countersArticles[i];
