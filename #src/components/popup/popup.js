@@ -10,13 +10,18 @@ $('.top-header__login').magnificPopup({
     // It looks not nice, so we disable it:
     callbacks: {
         beforeOpen: function() {
+            $('body').addClass('mfp-active');
             if($(window).width() < 700) {
                 this.st.focus = false;
             } else {
                 this.st.focus = '#name';
             }
+        },
+        beforeClose: function() {
+            $('body').removeClass('mfp-active');
         }
     }
+
 });
 
 // Switching Login to Register
@@ -62,17 +67,56 @@ for (let i = 0; i < passEyes.length; i++) {
 $('.hero__btn').magnificPopup({
     type: 'inline',
     preloader: false,
+    callbacks: {
+        beforeOpen: function() {
+            $('body').addClass('mfp-active');
+            if($(window).width() < 700) {
+                this.st.focus = false;
+            } else {
+                this.st.focus = '#name';
+            }
+        },
+        beforeClose: function() {
+            $('body').removeClass('mfp-active');
+        }
+    }
 });
 
 // Call-request modal
 $('.modal__call-btn').magnificPopup({
     type: 'inline',
     preloader: false,
+    callbacks: {
+        beforeOpen: function() {
+            $('body').addClass('mfp-active');
+            if($(window).width() < 700) {
+                this.st.focus = false;
+            } else {
+                this.st.focus = '#name';
+            }
+        },
+        beforeClose: function() {
+            $('body').removeClass('mfp-active');
+        }
+    }
 });
 
 $('.about__btn').magnificPopup({
     type: 'inline',
     preloader: false,
+    callbacks: {
+        beforeOpen: function() {
+            $('body').addClass('mfp-active');
+            if($(window).width() < 700) {
+                this.st.focus = false;
+            } else {
+                this.st.focus = '#name';
+            }
+        },
+        beforeClose: function() {
+            $('body').removeClass('mfp-active');
+        }
+    }
 });
 
 

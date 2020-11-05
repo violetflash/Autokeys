@@ -1,3 +1,21 @@
+// preventing scrolling modal on mobile devices
+body {
+  -webkit-overflow-scrolling: touch;
+}
+body.mfp-active {
+  overflow: hidden;
+  -webkit-overflow-scrolling: auto;
+  width: 100%;
+  position: fixed;
+  overflow: auto;
+}
+body .mfp-wrap {
+  position: fixed;
+  overflow: auto;
+  top: 0 !important;
+}
+//
+
 .mfp-bg {
   background: var(--lightGrey);
 }
@@ -335,7 +353,7 @@ button.mfp-close {
   // modal call-request
   &--request {
     padding: 40px 15px 30px;
-    width: $callRequest;
+    max-width: $callRequest;
     text-align: center;
 
     .modal__text {
@@ -352,7 +370,4 @@ button.mfp-close {
       }
     }
   }
-
-
 }
-
