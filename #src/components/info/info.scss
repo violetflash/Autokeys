@@ -6,6 +6,43 @@
     padding: 53px 0 72px;
   }
 
+  &--feedback {
+    padding: 104px 0 147px;
+    background-color: var(--white);
+
+    @media (max-width: $md3+px) {
+      padding: 60px 0 74px;
+    }
+    
+    .info__header {
+      @media (max-width: $md3+px) {
+        margin: 0 0 35px;
+      }
+      
+      @media (max-width: 500px) {
+        justify-content: center;
+      }
+    }
+    
+    
+
+    .info__footer {
+      display: block;
+      margin: 137px 0 0;
+
+      @media (max-width: $md3+px) {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 40px 0 0;
+      }
+
+      @media (max-width: 500px) {
+        flex-direction: column;
+      }
+    }
+  }
+
   &__header {
     display: flex;
     align-items: center;
@@ -38,14 +75,26 @@
   .slider-control {
     margin: 0 50px 0 auto;
 
+    @media (max-width: $md3+px) {
+      margin: 0;
+    }
+
     @media (max-width: 500px) {
       margin: 0 auto;
     }
   }
 
+  .slider-control__count {
+    display: none;
+
+    @media (max-width: 600px) {
+      display: block;
+    }
+  }
+
   &__btn {
     font-size: 16px;
-    color: #333;
+    //color: #333;
     white-space: nowrap;
 
     @media (max-width: 500px) {
@@ -176,5 +225,59 @@
       transform: translateY(-50%);
       background: url('../images/icons/blog-angle-right.svg') center no-repeat;
     }
+  }
+}
+
+.feedback-item {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  line-height: 1.45;
+  
+  @media (max-width: 500px) {
+    text-align: center;
+  }
+
+  &__avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 20px;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: 1px solid var(--accent);
+
+    img,
+    picture {
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+    }
+
+    @media (max-width: 500px) {
+      margin: 0 auto;
+    }
+  }
+
+  &__name {
+    margin: 0 0 5px;
+  }
+
+  &__city {
+    margin: 0 0 22px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  &__text {
+    margin: 0 0 26px;
+    color: var(--mainColor-hover);
+    font-weight: 500;
+    line-height: 2;
+  }
+
+  &__date {
+    color: var(--mainColor);
   }
 }

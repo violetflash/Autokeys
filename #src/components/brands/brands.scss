@@ -45,12 +45,6 @@
     }
   }
 
-  &__arrow-prev,
-  &__arrow-next {
-    path {
-      stroke: var(--white);
-    }
-  }
 
   &__image {
     display: flex;
@@ -76,6 +70,18 @@
     @media (max-width: 550px) {
       justify-content: center;
       margin: 0;
+    }
+  }
+
+  .slider-control__arrow {
+    path {
+      stroke: var(--white);
+    }
+
+    &:hover {
+      path {
+        stroke: var(--accent);
+      }
     }
   }
 }
