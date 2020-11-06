@@ -64,7 +64,7 @@ for (let i = 0; i < passEyes.length; i++) {
 }
 
 // Call modal
-$('.hero__btn').magnificPopup({
+$('.modal-btn').magnificPopup({
     type: 'inline',
     preloader: false,
     callbacks: {
@@ -81,45 +81,6 @@ $('.hero__btn').magnificPopup({
         }
     }
 });
-
-// Call-request modal
-$('.modal__call-btn').magnificPopup({
-    type: 'inline',
-    preloader: false,
-    callbacks: {
-        beforeOpen: function() {
-            $('body').addClass('mfp-active');
-            if($(window).width() < 700) {
-                this.st.focus = false;
-            } else {
-                this.st.focus = '#name';
-            }
-        },
-        beforeClose: function() {
-            $('body').removeClass('mfp-active');
-        }
-    }
-});
-
-$('.about__btn').magnificPopup({
-    type: 'inline',
-    preloader: false,
-    callbacks: {
-        beforeOpen: function() {
-            $('body').addClass('mfp-active');
-            if($(window).width() < 700) {
-                this.st.focus = false;
-            } else {
-                this.st.focus = '#name';
-            }
-        },
-        beforeClose: function() {
-            $('body').removeClass('mfp-active');
-        }
-    }
-});
-
-
 
 
 

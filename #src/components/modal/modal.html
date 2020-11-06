@@ -58,6 +58,12 @@
   <p class="modal__subtitle">Нету времени или возможности позвонить? Мы свяжемся с Вами в ближайшие 2 минуты!</p>
   <input class="modal__input" type="text" name="Имя" placeholder="Ваше имя" required>
   <input class="modal__input modal__input--tel" type="tel" name="Телефон" data-validate-field="tel" placeholder="Ваш телефон">
+  <label class="modal__checkbox">
+    <input class="modal__checkbox-input" type="checkbox">
+    <span class="modal__checkbox-text">Нажимая на кнопку «Заказать звонок», я принимаю условия Политики конфиденциальности в отношении хранения и
+      обработки персональных данных пользователей
+    </span>
+  </label>
   <button class="modal__btn btn" type="submit">заказать звонок</button>
   <p class="modal__text">или свяжитесь с нами по номеру</p>
   <a class="modal__phone" href="tel:+74951351511">+7 (495) 135-15-11</a>
@@ -71,11 +77,29 @@
   <textarea class="modal__input modal__input--textarea" placeholder="Ваше сообщение"></textarea>
   <label class="modal__checkbox">
     <input class="modal__checkbox-input" type="checkbox">
-    <span class="modal__checkbox-text">Нажимая на кнопку «Заказать звонок», Вы принимаете условия Политики конфиденциальности в отношении хранения и
+    <span class="modal__checkbox-text">Нажимая на кнопку «Отправить», я принимаю условия Политики конфиденциальности в отношении хранения и
       обработки персональных данных пользователей
     </span>
   </label>
-  <button class="modal__btn btn" type="submit">заказать звонок</button>
+  <button class="modal__btn btn" type="submit">Отправить</button>
+  <p class="modal__text">или свяжитесь с нами по номеру</p>
+  <a class="modal__phone" href="tel:+74951351511">+7 (495) 135-15-11</a>
+</form>
+
+
+<form class="mfp-hide modal modal--request" id="consultation">
+  <h2 class="modal__title">Заказать консультацию</h2>
+  <p class="modal__subtitle">Для восстановления или программирования чипов ключей некоторых моделей автомобиля требуется сам автомобиль. Мы окажем Вам содействие в эвакуации автомобиля, если потребуется</p>
+  <input class="modal__input" type="text" name="Имя" placeholder="Ваше имя" required>
+  <input class="modal__input modal__input--tel" type="tel" name="Телефон" autocomplete="false" placeholder="Ваш телефон" required>
+  <textarea class="modal__input modal__input--textarea" placeholder="Ваше сообщение"></textarea>
+  <label class="modal__checkbox">
+    <input class="modal__checkbox-input" type="checkbox">
+    <span class="modal__checkbox-text">Нажимая на кнопку «Отправить», я принимаю условия Политики конфиденциальности в отношении хранения и
+      обработки персональных данных пользователей
+    </span>
+  </label>
+  <button class="modal__btn btn" type="submit">Отправить</button>
   <p class="modal__text">или свяжитесь с нами по номеру</p>
   <a class="modal__phone" href="tel:+74951351511">+7 (495) 135-15-11</a>
 </form>

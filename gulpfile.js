@@ -93,22 +93,6 @@ let {src, dest} = require('gulp'),
     notify = require('gulp-notify')
 
 
-//Функция, которая будет обновлять страницу
-function browserSync(params) {
-    //обращаемся к переменной
-    browsersync.init({
-        //тут указываются настройки плагина
-        server: {
-            baseDir: "./" + project_folder + "/",
-            // directory: true,
-            index: "index.html"
-        },
-        port: 5000,
-        // notify: false,
-        injectChanges: false
-    })
-}
-
 // Обработчик ошибок
 function errorHandler() {
     var args = Array.prototype.slice.call(arguments);
@@ -419,9 +403,22 @@ function cb() {
 }
 
 
-//Функция для отслеживания изменений на лету
-function watchFiles(params) {
-    // gulp.watch([path.watch.pug], pug2html);
+
+//Функция, которая будет обновлять страницу
+function browserSync(params) {
+    //обращаемся к переменной
+    browsersync.init({
+        //тут указываются настройки плагина
+        server: {
+            baseDir: "./" + project_folder + "/",
+            // directory: true,
+            // index: "index.html"
+        },
+        port: 5000,
+        // notify: false,
+        injectChanges: false
+    })
+
     gulp.watch([path.watch.html], html);
     gulp.watch([path.watch.css], css);
     gulp.watch([path.watch.js], js);
@@ -429,14 +426,23 @@ function watchFiles(params) {
     gulp.watch([path.watch.video], copyVideo);
 }
 
+// без этой шляпы browserSync не обновляет html
+function watchHtml(done) {
+    gulp.watch([path.watch.html], cb => {
+        browsersync.reload();
+        cb();
+    });
+    done();
+}
+
 //Функция, кот. будет чистить(удалять) папку result
 function clean(params) {
     return del(path.clean);
 }
 
-let build = gulp.series(clean, gulp.parallel(jsLibs, js, cssLibs, css, html, images, svgSprites, copyFonts, copyVideo), fontsStyle);
+let build = gulp.series(clean, gulp.parallel(jsLibs, js, html, cssLibs, css, images, svgSprites, copyFonts, copyVideo), fontsStyle);
 //сценарий выполнения watch
-let watch = gulp.parallel(build, watchFiles, browserSync);
+let watch = gulp.parallel(build, watchHtml, browserSync);
 
 // gulp.task("default", gulp.parallel("style", "script"));
 
@@ -456,4 +462,5 @@ exports.html = html;
 // exports.pug2html = pug2html;
 exports.build = build;
 exports.watch = watch;
+exports.watchHtml = watchHtml;
 exports.default = watch;

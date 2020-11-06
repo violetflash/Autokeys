@@ -191,7 +191,8 @@ textarea {
 .methods {
   display: flex;
 
-  div {
+  div,
+  button {
     position: relative;
     display: flex;
     align-items: center;
