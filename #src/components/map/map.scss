@@ -5,6 +5,11 @@
   @media (max-width: $md3+px) {
     padding: 56px 0 71px;
   }
+
+  @media (max-width: 550px) {
+    padding: 0;
+    background-color: transparent;
+  }
   
   &__title {
     margin: 0 0 45px;
@@ -13,6 +18,12 @@
     
     &::first-letter {
       text-transform: capitalize;
+    }
+
+    @media (max-width: 550px) {
+      font-size: 30px;
+      text-align: center;
+      color: var(--white);
     }
   }
 
