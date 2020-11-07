@@ -3,6 +3,18 @@
   &__bottom {
     border-top: 1px solid rgba(#000, 0.1);
   }
+
+  .logo {
+    @media (max-width: 650px) {
+      max-width: 150px;
+    }
+
+    &__info {
+      @media (max-width: $md2+px) {
+        display: none;
+      }
+    }
+  }
 }
 
 .top-header {
@@ -134,18 +146,6 @@
 
     @media (max-width: 1200px) {
       display: none;
-    }
-  }
-
-  .logo {
-    @media (max-width: 650px) {
-      max-width: 150px;
-    }
-
-    &__info {
-      @media (max-width: $md2+px) {
-        display: none;
-      }
     }
   }
 }
