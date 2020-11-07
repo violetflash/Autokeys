@@ -39,3 +39,14 @@ $(document).click(function (e) {
 
     }
 })
+
+$(".scroll-header").hide();
+$(window).scroll(function() {
+    if ($(this).scrollTop() > 10) {
+        $('.scroll-header').slideDown(500);
+        $('.header').slideUp(500);
+    } else {
+        $('.scroll-header').slideUp(500);
+        $('.header').slideDown(500);
+    }
+});

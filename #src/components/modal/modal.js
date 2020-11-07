@@ -1,6 +1,6 @@
 ///MODAL LOGIN-REGISTER
 
-$('.top-header__login').magnificPopup({
+$('.modal-login').magnificPopup({
     type: 'inline',
     preloader: false,
     focus: '.modal__login',
@@ -21,7 +21,6 @@ $('.top-header__login').magnificPopup({
             $('body').removeClass('mfp-active');
         }
     }
-
 });
 
 // Switching Login to Register
