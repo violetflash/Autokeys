@@ -76,8 +76,8 @@ let {src, dest} = require('gulp'),
     imageminGifsicle = require('imagemin-gifsicle'),
     recompress = require("imagemin-jpeg-recompress"), //тоже пережимает, но лучше. Плагин для плагина
     pngquant = require("imagemin-pngquant"),
-    webp = require("gulp-webp"),
-    webphtml = require("gulp-webp-html"),
+    // webp = require("gulp-webp"),
+    // webphtml = require("gulp-webp-html"),
     svgSprite = require("gulp-svg-sprite"),
     ttf2woff = require("gulp-ttf2woff"),
     ttf2woff2 = require("gulp-ttf2woff2"),
@@ -122,7 +122,7 @@ function html() {
     return src(path.src.html)
         //сборка файлов через fileinclude
         .pipe(fileinclude())
-        .pipe(webphtml())
+        // .pipe(webphtml())
         .pipe(htmlValidator())
         .pipe(bemValidator())
         .pipe(dest(path.build.html)) //выгрузка
@@ -277,13 +277,13 @@ function js() {
 
 function images() {
     return src(path.src.img)
-        .pipe(
-            webp({
-                quality: 70
-            })
-        )
-        .pipe(dest(path.build.img)) //выгрузка
-        .pipe(src(path.src.img))  //обращение к исходникам
+        // .pipe(
+        //     webp({
+        //         quality: 70
+        //     })
+        // )
+        // .pipe(dest(path.build.img)) //выгрузка
+        // .pipe(src(path.src.img))  //обращение к исходникам
         .pipe(
             imagemin(
                 [
