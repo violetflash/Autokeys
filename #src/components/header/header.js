@@ -40,15 +40,14 @@ $(document).click(function (e) {
     }
 })
 
-//fixed header
-// window.addEventListener('scroll', onScroll);
-// window.addEventListener('touchmove', onScroll);
+// fixed header
+window.addEventListener('scroll', onScroll);
+window.addEventListener('touchmove', onScroll);
 window.onscroll = function () {onScroll()};
 
 function onScroll() {
     let header = document.querySelector('.header');
     let headerBottom = header.offsetTop + header.offsetHeight;
-
     let headerScroll = document.querySelector('.scroll-header');
     if (window.pageYOffset >= headerBottom)  {
         headerScroll.classList.add('visible');
