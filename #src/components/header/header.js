@@ -41,8 +41,9 @@ $(document).click(function (e) {
 })
 
 //fixed header
-window.addEventListener('scroll', onScroll);
-window.addEventListener('touchmove', onScroll);
+// window.addEventListener('scroll', onScroll);
+// window.addEventListener('touchmove', onScroll);
+window.onscroll = function () {onScroll()};
 
 function onScroll() {
     let header = document.querySelector('.header');
