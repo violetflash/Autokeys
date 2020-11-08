@@ -41,7 +41,10 @@ $(document).click(function (e) {
 })
 
 //fixed header
-window.addEventListener('scroll', function(e) {
+window.addEventListener('scroll', onScroll);
+window.addEventListener('touchmove', onScroll);
+
+function onScroll() {
     let header = document.querySelector('.header');
     let headerBottom = header.offsetTop + header.offsetHeight;
 
@@ -51,22 +54,4 @@ window.addEventListener('scroll', function(e) {
     } else if ( window.pageYOffset < headerBottom) {
         headerScroll.classList.remove('visible');
     }
-});
-
-
-
-
-
-
-
-
-// $(".scroll-header").hide();
-// $(window).scroll(function() {
-//     if ($(this).scrollTop() > 10) {
-//         $('.scroll-header').slideDown(500);
-//         $('.header').slideUp(500);
-//     } else {
-//         $('.scroll-header').slideUp(500);
-//         $('.header').slideDown(500);
-//     }
-// });
+}
