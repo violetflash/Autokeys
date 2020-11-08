@@ -46,9 +46,9 @@ window.addEventListener('scroll', function(e) {
     let headerBottom = header.offsetTop + header.offsetHeight;
 
     let headerScroll = document.querySelector('.scroll-header');
-    if (window.scrollY >= headerBottom)  {
-        headerScroll.className += ' visible';
-    } else if ( window.scrollY < headerBottom) {
+    if (window.pageYOffset >= headerBottom)  {
+        headerScroll.classList.add('visible');
+    } else if ( window.pageYOffset < headerBottom) {
         headerScroll.classList.remove('visible');
     }
 });
