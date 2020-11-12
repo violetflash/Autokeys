@@ -4,8 +4,6 @@
 // Andrikanych Yevhen 2020
 // https://www.youtube.com/c/freelancerlifestyle
 
-"use strict";
-
 (function () {
     let originalPositions = [];
     let daElements = document.querySelectorAll('[data-da]');
@@ -54,7 +52,6 @@
             daMatchMedia[index].addListener(dynamicAdapt);
         }
     }
-
     //Основная функция
     function dynamicAdapt(e) {
         for (let index = 0; index < daElementsArray.length; index++) {
@@ -100,13 +97,11 @@
         const actualIndex = indexOfElements(parentPlace, true)[indexPlace];
         parentPlace.insertBefore(el, parentPlace.children[actualIndex]);
     }
-
     //Функция получения индекса внутри родителя
     function indexInParent(el) {
         var children = Array.prototype.slice.call(el.parentNode.children);
         return children.indexOf(el);
     }
-
     //Функция получения массива индексов элементов внутри родителя
     function indexOfElements(parent, back) {
         const children = parent.children;
@@ -124,64 +119,17 @@
         }
         return childrenArray;
     }
-
     //Сортировка объекта
     function dynamicAdaptSort(arr) {
         arr.sort(function (a, b) {
-            if (a.breakpoint > b.breakpoint) {
-                return -1
-            } else {
-                return 1
-            }
+            if (a.breakpoint > b.breakpoint) { return -1 } else { return 1 }
         });
         arr.sort(function (a, b) {
-            if (a.place > b.place) {
-                return 1
-            } else {
-                return -1
-            }
+            if (a.place > b.place) { return 1 } else { return -1 }
         });
     }
-
     //Дополнительные сценарии адаптации
     function customAdapt() {
         //const viewport_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
     }
 }());
-
-/*
-let block = document.querySelector('.click');
-block.addEventListener("click", function (e) {
-	alert('Все ок ;)');
-});
-*/
-
-/*
-//Объявляем переменные
-const parent_original = document.querySelector('.content__blocks_city');
-const parent = document.querySelector('.content__column_river');
-const item = document.querySelector('.content__block_item');
-
-//Слушаем изменение размера экрана
-window.addEventListener('resize', move);
-
-//Функция
-function move(){
-	const viewport_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-	if (viewport_width <= 992) {
-		if (!item.classList.contains('done')) {
-			parent.insertBefore(item, parent.children[2]);
-			item.classList.add('done');
-		}
-	} else {
-		if (item.classList.contains('done')) {
-			parent_original.insertBefore(item, parent_original.children[2]);
-			item.classList.remove('done');
-		}
-	}
-}
-
-//Вызываем функцию
-move();
-
-*/

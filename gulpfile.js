@@ -91,6 +91,7 @@ let {src, dest} = require('gulp'),
     htmlValidator = require('gulp-w3c-html-validator')
     bemValidator = require('gulp-html-bem-validator')
     notify = require('gulp-notify')
+    cache = require('gulp-cache')
 
 
 // Обработчик ошибок
@@ -284,7 +285,7 @@ function images() {
         // )
         // .pipe(dest(path.build.img)) //выгрузка
         // .pipe(src(path.src.img))  //обращение к исходникам
-        .pipe(
+        .pipe(cache(
             imagemin(
                 [
                     recompress({
@@ -315,7 +316,7 @@ function images() {
                     optimizationLevel: 3 // 0 to 7
                 }
             ),
-        )
+        ))
         .pipe(dest(path.build.img))
         .pipe(browsersync.stream());
 }
